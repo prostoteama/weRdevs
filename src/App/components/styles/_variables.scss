@@ -1,0 +1,35 @@
+$main-color: #fdd000;
+$color: #dfdfdf;
+$hedfoot: #3d3d3d;
+$bg: #272829;
+$border: 1px solid #ffffff65;
+
+@mixin dtn {
+  display: flex;
+  list-style: none;
+}
+
+@mixin pseudo() {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  width: calc(46.7rem - 2.2rem);
+  left: 1.1rem;
+  height: 1px;
+}
+@mixin pseudo() {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  width: calc(46.7rem - 2.2rem);
+  left: 1.1rem;
+  height: 1px;
+}
+
+@mixin mediaPseudoFirst() {
+  width: calc(40rem - 2rem);;
+}
+
+@mixin mediaPseudoSec() {
+  width: calc(30rem - 2rem);;
+}

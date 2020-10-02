@@ -1,0 +1,81 @@
+@import "./variables";
+
+.popup_overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 2000;
+}
+
+.popup {
+  z-index: 2010;
+  background-color: #f5f5f5;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 51rem;
+  height: 14rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 50px 1px #000;
+
+  label {
+    display: block;
+    font-family: "Rubik", sans-serif;
+    color: #a2a2a2;
+    font-weight: 300;
+    font-size: 2rem;
+
+    input {
+      font-family: "Rubik", sans-serif;
+      font-weight: 400;
+      font-size: 2.2rem;
+      display: block;
+      margin-top: 0.8rem;
+
+      padding-left: 2rem;
+
+      height: 5.4rem;
+      width: 22rem;
+
+      border: 0.2rem solid $main-color;
+      outline: none;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+    font-size: 1.3rem;
+    background-color: $main-color;
+
+    display: flex;
+    justify-content: center ;
+    align-items: center ;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .popup {
+    width: 30rem;
+    height: 30rem;
+    border-radius: 0.5rem;
+    align-content: space-between;
+  
+    flex-direction: column;
+  }
+}

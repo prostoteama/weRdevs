@@ -1,0 +1,207 @@
+@import "./variables.scss";
+
+.calendar {
+  position: absolute;
+  right: 11.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+
+  width: 46.7rem;
+  color: $color;
+  z-index: 100;
+}
+
+.month {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+  padding: 0 1.1rem 2rem 1.1rem;
+  text-align: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  &::after {
+    @include pseudo();
+    border-bottom: $border;
+    padding-bottom: 2rem;
+  }
+}
+
+.month i {
+  font-size: 1.6rem;
+  width: 1rem;
+  cursor: pointer;
+  opacity: 0.67;
+}
+
+.month h1 {
+  font-size: 1.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.month p {
+  font-size: 1.6rem;
+}
+
+.weekdays {
+  position: relative;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 0;
+  &::after {
+    @include pseudo();
+
+    border-bottom: $border;
+  }
+}
+
+.weekdays div {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  padding: 2rem 0;
+  width: 5.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2.1rem 0;
+  &::after {
+    @include pseudo();
+    border-bottom: $border;
+  }
+}
+
+.days div {
+  position: relative;
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin: 1.1rem;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: none;
+    bottom: -0.4rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background-color: $main-color;
+  }
+}
+
+.days div:hover:not(.today) {
+  color: $main-color;
+  background-color: #262626;
+  // border: 0.2rem solid #777;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    display: block;
+  }
+}
+
+.prev-date,
+.next-date {
+  opacity: 0.24;
+}
+
+.today {
+  background-color: $main-color;
+}
+
+@media screen and (max-width: 500px), screen and (max-height: 700px) {
+  .calendar {
+    width: 40rem;
+    .days div {
+      margin: 1rem;
+      width: 3.7rem;
+      height: 3.7rem;
+    }
+    .month {
+      &::after {
+        @include mediaPseudoFirst;
+      }
+    }
+
+    .weekdays {
+      &::after {
+        @include mediaPseudoFirst;
+      }
+    }
+
+    .days {
+      &::after {
+        @include mediaPseudoFirst;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 410px), screen and (max-height: 620px) {
+  .calendar {
+    width: 30rem;
+    .days div {
+      margin: 0.5rem;
+      width: 3.1rem;
+      height: 3.1rem;
+    }
+
+    .month {
+      &::after {
+        @include mediaPseudoSec();
+      }
+    }
+
+    .weekdays {
+      &::after {
+        @include mediaPseudoSec();
+      }
+    }
+
+    .days {
+      &::after {
+        @include mediaPseudoSec();
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 700px), screen and (max-width: 500px) {
+  .calendar {
+    right: 15.2rem;
+  }
+}
+
+@media screen and (max-height: 620px), screen and (max-width: 410px) {
+  .calendar {
+    right: 20.2rem;
+  }
+}

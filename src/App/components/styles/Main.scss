@@ -1,0 +1,64 @@
+@import "./variables";
+.main {
+  position: relative;
+  min-height: 50rem;
+  height: 88vh;
+  background: no-repeat url("../../../img/bg-photo.jpg") 0px 0px;
+  background-size: cover;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 704px;
+    height: 100%;
+    background-color: #262626;
+    right: 0;
+    top: 0;
+  }
+  .wrapper {
+    .title {
+      position: absolute;
+      bottom: 50%;
+      right: 73rem;
+      width: 52rem;
+      text-align: right;
+      &__main {
+        font-weight: 800;
+        font-size: 5rem;
+        color: $main-color;
+        margin-bottom: 4.4rem;
+      }
+      &__secondary {
+        margin-right: 0;
+        letter-spacing: 0.6px;
+        font-weight: 300;
+        font-size: 3rem;
+        color: $color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .main {
+    &::after {
+      width: 100%;
+      opacity: 0.5;
+    }
+
+    & .wrapper {
+      height: 100%;
+    }
+    & > .wrapper > .calendar {
+      position: relative;
+      right: unset;
+      transform: translateY(-50%);
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .title {
+    display: none;
+  }
+}

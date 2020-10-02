@@ -1,0 +1,87 @@
+@import "./variables.scss";
+.home {
+  height: 100vh;
+}
+.wrapper {
+  width: 100%;
+  max-width: 170rem;
+  margin: 0 auto;
+
+  .header {
+    height: 12vh;
+    min-height: 6rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__toggle-button {
+      display: none;
+      font-size: 4rem;
+      color: $main-color;
+    }
+
+    &__img {
+      width: 16.5rem;
+    }
+    &__pages {
+      @include dtn;
+
+      & li > a {
+        font-size: 2.8rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: $hedfoot;
+        text-decoration: none;
+        &.active {
+          border-bottom: 0.5rem solid $main-color;
+        }
+      }
+
+      & li:not(:last-child) {
+        margin-right: 7rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1800px) {
+    .header {
+      padding: 0 11rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .header {
+      position: relative;
+      padding: 0 3rem;
+
+      &__toggle-button {
+        display: block;
+      }
+
+      &__pages {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transform: translateX(50%);
+        transform: translateY(100%);
+        z-index: 100;
+        flex-direction: column;
+        background-color: #ffffff;
+
+        & > li {
+          text-align: center;
+          margin-right: 0 !important;
+          margin-bottom: 5rem;
+        }
+        &.active {
+          display: block;
+          z-index: 1000;
+        }
+      }
+    }
+  }
+}
